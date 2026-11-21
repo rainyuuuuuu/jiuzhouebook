@@ -25,10 +25,51 @@
 
     <title>中国世界地质公园</title>
     <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
-    <script type="module" crossorigin src="./assets/index-qx77BtfN.js"></script>
+    <style>
+      #orient-mask {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: #1c1a17;
+        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        text-align: center;
+        padding: 24px;
+        box-sizing: border-box;
+      }
+      #orient-mask .icon {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 20px;
+        opacity: 0.85;
+        animation: orient-rotate 2s ease-in-out infinite;
+      }
+      @keyframes orient-rotate {
+        0%, 40% { transform: rotate(0deg); }
+        60%, 100% { transform: rotate(90deg); }
+      }
+      #orient-mask h2 { margin: 0 0 10px; font-size: 20px; font-weight: 600; }
+      #orient-mask p { margin: 0; font-size: 14px; line-height: 1.6; opacity: 0.65; }
+      /* 仅在“触屏设备 + 竖屏”时遮挡，提示横屏；电脑/横屏一律不显示 */
+      @media (pointer: coarse) and (orientation: portrait) {
+        #orient-mask { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        #app { visibility: hidden; }
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-C4n8K38O.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/style-ByUNsKId.css">
   </head>
   <body>
+    <div id="orient-mask">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="5" width="13" height="14" rx="2"></rect>
+        <path d="M15 9h2a1 1 0 0 1 1 1v4"></path>
+        <path d="M21 11.5 19.5 14 18 11.5"></path>
+      </svg>
+      <h2>请横屏观看</h2>
+      <p>这本书为跨页排版，<br />请将手机横向持放，获得完整阅读体验</p>
+    </div>
     <div id="app"></div>
   </body>
 </html>
